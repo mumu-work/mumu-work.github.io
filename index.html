@@ -441,27 +441,7 @@
     </style>
 </head>
 <body class="bg-gray-100 font-sans">
-    <!-- 👇 这里就是要加的加载提示代码（粘贴到这行） -->
-    <div id="loading-tip" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; display: flex; justify-content: center; align-items: center; z-index: 9999; font-size: 16px; color: #374151;">
-        生产计划管理系统加载中...<br>若长时间未响应，将自动刷新
-    </div>
-
-    <script>
-    // 等待所有资源加载完成后，隐藏加载提示
-    window.onload = function() {
-      const loadingTip = document.getElementById('loading-tip');
-      if (loadingTip) loadingTip.style.display = 'none';
-    };
-
-    // 首次加载如果5秒没完成，自动强制刷新（避免手动刷）
-    setTimeout(function() {
-      const loadingTip = document.getElementById('loading-tip');
-      if (loadingTip && loadingTip.style.display !== 'none') {
-        location.reload(true); // 强制刷新，跳过缓存
-      }
-    }, 5000);
-    </script>
-    <!-- 👆 加载提示代码结束 -->
+   
     <div class="flex h-screen overflow-hidden">
         <!-- 左侧导航栏 -->
         <aside class="bg-primary text-white w-64 flex-shrink-0 hidden md:block">
@@ -8323,6 +8303,16 @@
 
     <!-- JavaScript -->
     <script>
+        //加了这里
+        <script>
+// 强制等页面加载完，自动执行菜单初始化（不管你原来的调用在哪）
+document.addEventListener('DOMContentLoaded', function() {
+  if (typeof setupMenuToggle === 'function') {
+    setupMenuToggle(); // 自动执行你的菜单函数
+  }
+});
+</script>
+    //截止到这里
         document.addEventListener('DOMContentLoaded', function() {
             // 初始化图表
             initCharts();
@@ -9441,15 +9431,7 @@ function setupActivity17() {
                     document.getElementById('mobile-nav').classList.add('translate-x-full');
                 });
             }
-           //新加
-            document.addEventListener('DOMContentLoaded', function() {
-    // 延迟500ms执行，就算首次加载慢也能初始化成功（模拟刷新效果）
-    setTimeout(function() {
-        // 初始化菜单折叠/展开功能（你的原有调用）
-        setupMenuToggle();
-    }, 500);
-});
-           //这里结束
+      
             // 初始化菜单折叠/展开功能
             setupMenuToggle();
         }
