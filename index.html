@@ -448,6 +448,17 @@
                 <h1 class="text-xl font-bold">生产计划管理系统</h1>
             </div>
             <nav class="mt-4">
+                <!-- 系统介绍 (新增入口) -->
+                <div class="px-4 py-2 text-xs text-blue-300 uppercase tracking-wider cursor-pointer flex justify-between items-center plan-demand-toggle">
+                    <span>系统概览</span>
+                    <i class="fa fa-chevron-down transition-transform duration-200"></i>
+                </div>
+                <div class=""plan-demand-submenu hidden""> <!-- 默认展开，方便演示 -->
+                      <a href="#activity-00" class="flex items-center px-4 py-3 hover:bg-blue-800 transition-all nav-link pl-10" data-target="activity-00">
+                        <i class="fa fa-download w-5 h-5 mr-3"></i>
+                        <span>00 系统设计蓝图</span>
+                    </a>
+                </div>
                 <!-- 计划需求管理 -->
                 <div class="px-4 py-2 text-xs text-blue-300 uppercase tracking-wider cursor-pointer flex justify-between items-center plan-demand-toggle">
                     <span>计划需求管理</span>
@@ -624,6 +635,20 @@
             </div>
             <nav class="mt-4 text-white">
                 <!-- 移动端导航菜单项 -->
+<!-- 计划需求管理 -->
+                       <!--  这里是新加的系统概览 -->
+                <div class="px-4 py-2 text-xs text-blue-300 uppercase tracking-wider cursor-pointer flex justify-between items-center mobile-system-intro-toggle">
+                    <span>系统概览</span>
+                    <i class="fa fa-chevron-down transition-transform duration-200"></i>
+                </div>
+                <div class="mobile-system-intro-submenu hidden">
+                    <a href="#activity-00" class="flex items-center px-4 py-3 hover:bg-blue-800 transition-all mobile-nav-link pl-10" data-target="activity-00">
+                        <i class="fa fa-home w-5 h-5 mr-3"></i>
+                        <span>00 系统设计蓝图</span>
+                    </a>
+                </div>
+                <!-- 👆 到这里结束 -->
+
                 <!-- 计划需求管理 -->
                 <div class="px-4 py-2 text-xs text-blue-300 uppercase tracking-wider cursor-pointer flex justify-between items-center mobile-plan-demand-toggle">
                     <span>计划需求管理</span>
@@ -1434,8 +1459,376 @@
                             </div>
                         </div>
                     </div>
+<!-- 00 系统设计蓝图 (演示版：极简方案 + 详细页面指引) -->
+<div id="activity-00" class="activity-section hidden">
+    
+    <!-- 标题区 -->
+    <div class="mb-6">
+        <h2 class="text-3xl font-bold text-gray-800 flex items-center gap-3">
+            <i class="fa fa-lightbulb-o text-blue-600 bg-blue-100 p-2 rounded-full"></i>
+            系统设计蓝图与价值主张
+        </h2>
+        <p class="text-gray-500 mt-2 ml-12">聚焦 15 大核心业务痛点，构建智能化排产闭环体系</p>
+    </div>
 
-                    <!-- 02 获取订单 -->
+    <!-- 15大痛点全景墙 -->
+    <div class="bg-white rounded-xl shadow-lg border border-gray-100 mb-8 overflow-hidden">
+        <div class="bg-gradient-to-r from-blue-600 to-indigo-700 px-6 py-4">
+            <h3 class="text-lg font-medium text-white flex items-center gap-2">
+                <i class="fa fa-crosshairs"></i>
+                当前业务痛点 (As-Is) vs 系统解决方案 (To-Be)
+            </h3>
+        </div>
+        <div class="p-6 bg-slate-50">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                
+                <!-- 1. 资源冲突 -->
+                <div class="bg-white border-l-4 border-red-500 rounded-r-lg shadow-sm p-4 hover:shadow-md transition-shadow">
+                    <div class="flex gap-3">
+                        <i class="fa fa-bolt text-red-500 text-xl mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm">1. 模具/机台资源冲突</h4>
+                            <p class="text-xs text-gray-500 mt-1 mb-2 h-10 overflow-hidden">多对多排产依赖经验，稀缺模具无法实时核对，常导致撞单停机。</p>
+                            <div class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs mb-1">
+                                <strong>方案：</strong>资源建模 + 自动冲突校验
+                            </div>
+                            <div class="text-[10px] text-gray-500">
+                                <i class="fa fa-link mr-1"></i>25 资源建模 + 22 智能排程工作台
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. 参数计算 -->
+                <div class="bg-white border-l-4 border-red-500 rounded-r-lg shadow-sm p-4 hover:shadow-md transition-shadow">
+                    <div class="flex gap-3">
+                        <i class="fa fa-calculator text-red-500 text-xl mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm">2. 工艺参数人工计算</h4>
+                            <p class="text-xs text-gray-500 mt-1 mb-2 h-10 overflow-hidden">孔数需人工查图纸计算录入，数据离散无校验。</p>
+                            <div class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs mb-1">
+                                <strong>方案：</strong>参数自动匹配与防呆
+                            </div>
+                            <div class="text-[10px] text-gray-500">
+                                <i class="fa fa-link mr-1"></i>09 工艺参数匹配 + 13 工艺参数维护
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. 产能评估 -->
+                <div class="bg-white border-l-4 border-red-500 rounded-r-lg shadow-sm p-4 hover:shadow-md transition-shadow">
+                    <div class="flex gap-3">
+                        <i class="fa fa-tachometer text-red-500 text-xl mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm">3. 产能评估不准</h4>
+                            <p class="text-xs text-gray-500 mt-1 mb-2 h-10 overflow-hidden">凭经验估算冲次，标准工时偏差大，无法指导排产。</p>
+                            <div class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs mb-1">
+                                <strong>方案：</strong>公式配置 + 瓶颈负荷运算
+                            </div>
+                            <div class="text-[10px] text-gray-500">
+                                <i class="fa fa-link mr-1"></i>26 产能公式配置 + 11 产能核算分析
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. 版本混淆 -->
+                <div class="bg-white border-l-4 border-yellow-500 rounded-r-lg shadow-sm p-4 hover:shadow-md transition-shadow">
+                    <div class="flex gap-3">
+                        <i class="fa fa-files-o text-yellow-600 text-xl mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm">4. 计划版本混淆</h4>
+                            <p class="text-xs text-gray-500 mt-1 mb-2 h-10 overflow-hidden">SAP导出文件无版本号，靠邮件通知，极易搞错基准。</p>
+                            <div class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs mb-1">
+                                <strong>方案：</strong>同步快照 + 版本控制台
+                            </div>
+                            <div class="text-[10px] text-gray-500">
+                                <i class="fa fa-link mr-1"></i>02 订单同步管理 + 14 版本发布控制台
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. 数据分流 -->
+                <div class="bg-white border-l-4 border-yellow-500 rounded-r-lg shadow-sm p-4 hover:shadow-md transition-shadow">
+                    <div class="flex gap-3">
+                        <i class="fa fa-filter text-yellow-600 text-xl mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm">5. 数据分流繁琐</h4>
+                            <p class="text-xs text-gray-500 mt-1 mb-2 h-10 overflow-hidden">内销/出口取值逻辑不同，人工筛选费时且易漏单。</p>
+                            <div class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs mb-1">
+                                <strong>方案：</strong>ETL 规则引擎自动分流
+                            </div>
+                            <div class="text-[10px] text-gray-500">
+                                <i class="fa fa-link mr-1"></i>04 战略主计划编制
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. 备件BOM -->
+                <div class="bg-white border-l-4 border-yellow-500 rounded-r-lg shadow-sm p-4 hover:shadow-md transition-shadow">
+                    <div class="flex gap-3">
+                        <i class="fa fa-sitemap text-yellow-600 text-xl mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm">6. 备件BOM缺失</h4>
+                            <p class="text-xs text-gray-500 mt-1 mb-2 h-10 overflow-hidden">下发父件需人工查Excel找子件关系，缺乏系统支持。</p>
+                            <div class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs mb-1">
+                                <strong>方案：</strong>智能映射与知识库
+                            </div>
+                            <div class="text-[10px] text-gray-500">
+                                <i class="fa fa-link mr-1"></i>08 备件需求计划
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. 试制占产 -->
+                <div class="bg-white border-l-4 border-purple-500 rounded-r-lg shadow-sm p-4 hover:shadow-md transition-shadow">
+                    <div class="flex gap-3">
+                        <i class="fa fa-flask text-purple-600 text-xl mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm">7. 试制占产不准</h4>
+                            <p class="text-xs text-gray-500 mt-1 mb-2 h-10 overflow-hidden">白图无料号，口头预留产能导致负荷计算失真。</p>
+                            <div class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs mb-1">
+                                <strong>方案：</strong>虚拟订单录入与占位
+                            </div>
+                            <div class="text-[10px] text-gray-500">
+                                <i class="fa fa-link mr-1"></i>05 研发协同 + 10 业务联络书下发
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. 储备盲目 -->
+                <div class="bg-white border-l-4 border-orange-500 rounded-r-lg shadow-sm p-4 hover:shadow-md transition-shadow">
+                    <div class="flex gap-3">
+                        <i class="fa fa-database text-orange-600 text-xl mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm">8. 储备生产盲目</h4>
+                            <p class="text-xs text-gray-500 mt-1 mb-2 h-10 overflow-hidden">库存不清，凭经验安排储备，易导致呆滞或缺货。</p>
+                            <div class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs mb-1">
+                                <strong>方案：</strong>虚拟账本 + 机会推荐
+                            </div>
+                            <div class="text-[10px] text-gray-500">
+                                <i class="fa fa-link mr-1"></i>27 滚动储备管理
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 9. 库存扣减 -->
+                <div class="bg-white border-l-4 border-orange-500 rounded-r-lg shadow-sm p-4 hover:shadow-md transition-shadow">
+                    <div class="flex gap-3">
+                        <i class="fa fa-pencil-square-o text-orange-600 text-xl mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm">9. 备注扣减无效</h4>
+                            <p class="text-xs text-gray-500 mt-1 mb-2 h-10 overflow-hidden">"扣50库存"仅写在备注里，车间常忽略而全量生产。</p>
+                            <div class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs mb-1">
+                                <strong>方案：</strong>MRP物理拆分单据
+                            </div>
+                            <div class="text-[10px] text-gray-500">
+                                <i class="fa fa-link mr-1"></i>16 MRP需求中心
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10. 缺料停机 -->
+                <div class="bg-white border-l-4 border-orange-500 rounded-r-lg shadow-sm p-4 hover:shadow-md transition-shadow">
+                    <div class="flex gap-3">
+                        <i class="fa fa-cubes text-orange-600 text-xl mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm">10. 缺料停机风险</h4>
+                            <p class="text-xs text-gray-500 mt-1 mb-2 h-10 overflow-hidden">长交期物料库存不可见，未做齐套检查即下发，导致停机。</p>
+                            <div class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs mb-1">
+                                <strong>方案：</strong>齐套性预警与阻断
+                            </div>
+                            <div class="text-[10px] text-gray-500">
+                                <i class="fa fa-link mr-1"></i>18 库存核对 + 19 物料状态反馈
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 11. 拆单困难 -->
+                <div class="bg-white border-l-4 border-green-500 rounded-r-lg shadow-sm p-4 hover:shadow-md transition-shadow">
+                    <div class="flex gap-3">
+                        <i class="fa fa-scissors text-green-600 text-xl mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm">11. 拆单排程困难</h4>
+                            <p class="text-xs text-gray-500 mt-1 mb-2 h-10 overflow-hidden">T+3交期紧，人工拆单难统筹模具，易引发冲突。</p>
+                            <div class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs mb-1">
+                                <strong>方案：</strong>自动拆单 + 冲突校验
+                            </div>
+                            <div class="text-[10px] text-gray-500">
+                                <i class="fa fa-link mr-1"></i>22 智能排程工作台
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 12. 插单低效 -->
+                <div class="bg-white border-l-4 border-green-500 rounded-r-lg shadow-sm p-4 hover:shadow-md transition-shadow">
+                    <div class="flex gap-3">
+                        <i class="fa fa-ambulance text-green-600 text-xl mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm">12. 紧急插单低效</h4>
+                            <p class="text-xs text-gray-500 mt-1 mb-2 h-10 overflow-hidden">插单需人工找空闲时间，手动改Excel响应慢。</p>
+                            <div class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs mb-1">
+                                <strong>方案：</strong>智能甘特图拖拽插单
+                            </div>
+                            <div class="text-[10px] text-gray-500">
+                                <i class="fa fa-link mr-1"></i>22 智能排程工作台
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 13. 变更遗漏 -->
+                <div class="bg-white border-l-4 border-green-500 rounded-r-lg shadow-sm p-4 hover:shadow-md transition-shadow">
+                    <div class="flex gap-3">
+                        <i class="fa fa-bell-slash text-green-600 text-xl mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm">13. 变更通知遗漏</h4>
+                            <p class="text-xs text-gray-500 mt-1 mb-2 h-10 overflow-hidden">邮件通知取消单易漏看，导致生产报废。</p>
+                            <div class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs mb-1">
+                                <strong>方案：</strong>风险阻断与强制中断
+                            </div>
+                            <div class="text-[10px] text-gray-500">
+                                <i class="fa fa-link mr-1"></i>14 版本发布与变更控制台
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 14. 单据流转 -->
+                <div class="bg-white border-l-4 border-gray-500 rounded-r-lg shadow-sm p-4 hover:shadow-md transition-shadow">
+                    <div class="flex gap-3">
+                        <i class="fa fa-paper-plane-o text-gray-600 text-xl mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm">14. 单据流转缓慢</h4>
+                            <p class="text-xs text-gray-500 mt-1 mb-2 h-10 overflow-hidden">手工填写MO票效率低，且影响后续报工准确性。</p>
+                            <div class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs mb-1">
+                                <strong>方案：</strong>接口推送MES + PDF条码
+                            </div>
+                            <div class="text-[10px] text-gray-500">
+                                <i class="fa fa-link mr-1"></i>23 两器T+3计划下发
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 15. 进度黑盒 -->
+                <div class="bg-white border-l-4 border-gray-500 rounded-r-lg shadow-sm p-4 hover:shadow-md transition-shadow">
+                    <div class="flex gap-3">
+                        <i class="fa fa-eye-slash text-gray-600 text-xl mt-1"></i>
+                        <div>
+                            <h4 class="font-bold text-gray-800 text-sm">15. 进度监控黑盒</h4>
+                            <p class="text-xs text-gray-500 mt-1 mb-2 h-10 overflow-hidden">无完工数据权限，靠电话跟进，无法闭环优化。</p>
+                            <div class="bg-blue-50 text-blue-700 px-2 py-1 rounded text-xs mb-1">
+                                <strong>方案：</strong>实时看板 + 自动回写
+                            </div>
+                            <div class="text-[10px] text-gray-500">
+                                <i class="fa fa-link mr-1"></i>24 执行监控 + 27 储备管理
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 5大模块核心功能 (保持不变) -->
+    <!-- ... (模块介绍部分代码可以沿用之前的) ... -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-100">
+        <div class="bg-gradient-to-r from-indigo-500 to-indigo-600 px-6 py-4">
+            <h3 class="text-lg font-medium text-white flex items-center gap-2">
+                <i class="fa fa-cubes"></i>
+                系统架构与核心职能
+            </h3>
+        </div>
+        <div class="p-6">
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-6 text-center">
+                <!-- 模块1 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-blue-600 hover:-translate-y-1 transition-transform">
+                    <div class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                        <i class="fa fa-cloud-download"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-800 mb-2">1. 计划需求管理</h4>
+                    <p class="text-sm text-gray-500 mb-4">"管 来源"</p>
+                    <div class="text-xs text-gray-400 bg-gray-50 p-3 rounded text-left space-y-1">
+                        <p>• 统一数据池</p>
+                        <p>• 清洗与分流</p>
+                        <p>• 滚动储备</p>
+                    </div>
+                </div>
+
+                <!-- 模块2 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-yellow-500 hover:-translate-y-1 transition-transform">
+                    <div class="w-16 h-16 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                        <i class="fa fa-handshake-o"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-800 mb-2">2. 需求分析协同</h4>
+                    <p class="text-sm text-gray-500 mb-4">"管 变更"</p>
+                    <div class="text-xs text-gray-400 bg-gray-50 p-3 rounded text-left space-y-1">
+                        <p>• 版本控制</p>
+                        <p>• 风险阻断</p>
+                        <p>• 研发协同</p>
+                    </div>
+                </div>
+
+                <!-- 模块3 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-purple-600 hover:-translate-y-1 transition-transform">
+                    <div class="w-16 h-16 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                        <i class="fa fa-cogs"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-800 mb-2">3. 工艺产能管理</h4>
+                    <p class="text-sm text-gray-500 mb-4">"管 能力"</p>
+                    <div class="text-xs text-gray-400 bg-gray-50 p-3 rounded text-left space-y-1">
+                        <p>• 产能核算</p>
+                        <p>• 资源建模</p>
+                        <p>• 瓶颈识别</p>
+                    </div>
+                </div>
+
+                <!-- 模块4 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-orange-500 hover:-translate-y-1 transition-transform">
+                    <div class="w-16 h-16 bg-orange-100 text-orange-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                        <i class="fa fa-archive"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-800 mb-2">4. 库存与MRP</h4>
+                    <p class="text-sm text-gray-500 mb-4">"管 物料"</p>
+                    <div class="text-xs text-gray-400 bg-gray-50 p-3 rounded text-left space-y-1">
+                        <p>• 净需求计算</p>
+                        <p>• 齐套检查</p>
+                        <p>• 外购分流</p>
+                    </div>
+                </div>
+
+                <!-- 模块5 -->
+                <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-green-600 hover:-translate-y-1 transition-transform">
+                    <div class="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                        <i class="fa fa-paper-plane"></i>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-800 mb-2">5. 高级排产执行</h4>
+                    <p class="text-sm text-gray-500 mb-4">"管 执行"</p>
+                    <div class="text-xs text-gray-400 bg-gray-50 p-3 rounded text-left space-y-1">
+                        <p>• 智能排程</p>
+                        <p>• 任务下发</p>
+                        <p>• 闭环监控</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+     <!-- 02 获取订单 -->
                     <div id="activity-02" class="activity-section hidden">
                         <div class="bg-white rounded-lg shadow mb-6">
                             <div class="p-6 border-b border-gray-200">
@@ -8976,7 +9369,7 @@ function setupActivity17() {
             });
         }
 
-        function setupNavigation() {
+       function setupNavigation() {
             // 导航链接点击事件
             const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
             navLinks.forEach(link => {
@@ -8986,73 +9379,113 @@ function setupActivity17() {
                     // 获取目标活动ID
                     const targetId = this.getAttribute('data-target');
                     
-                    // 隐藏所有活动和仪表盘
+                    // 1. 隐藏所有活动和仪表盘
                     document.getElementById('dashboard').classList.add('hidden');
                     document.querySelectorAll('.activity-section').forEach(section => {
                         section.classList.add('hidden');
                     });
                     
-                    // 显示目标活动
-                    document.getElementById(targetId).classList.remove('hidden');
+                    // 2. 显示目标活动
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        targetElement.classList.remove('hidden');
+                    } else {
+                        console.error('Target element not found:', targetId);
+                        // 如果找不到目标，可以考虑显示仪表盘作为兜底
+                        document.getElementById('dashboard').classList.remove('hidden');
+                    }
                     
-                    // 更新页面标题
-                    document.getElementById('page-title').textContent = this.querySelector('span').textContent;
+                    // 3. 更新页面标题
+                    const span = this.querySelector('span');
+                    if (span) {
+                        document.getElementById('page-title').textContent = span.textContent;
+                    }
                     
-                    // 关闭移动端导航
+                    // 4. 关闭移动端导航
                     document.getElementById('mobile-nav').classList.add('translate-x-full');
                 });
             });
             
-            // 移动端导航切换
-            document.getElementById('mobile-nav-toggle').addEventListener('click', function() {
-                document.getElementById('mobile-nav').classList.toggle('translate-x-full');
-            });
+            // 移动端导航切换按钮
+            const mobileToggle = document.getElementById('mobile-nav-toggle');
+            if (mobileToggle) {
+                mobileToggle.addEventListener('click', function() {
+                    document.getElementById('mobile-nav').classList.toggle('translate-x-full');
+                });
+            }
             
-            document.getElementById('mobile-nav-close').addEventListener('click', function() {
-                document.getElementById('mobile-nav').classList.add('translate-x-full');
-            });
+            const mobileClose = document.getElementById('mobile-nav-close');
+            if (mobileClose) {
+                mobileClose.addEventListener('click', function() {
+                    document.getElementById('mobile-nav').classList.add('translate-x-full');
+                });
+            }
             
             // 初始化菜单折叠/展开功能
             setupMenuToggle();
         }
         
-        // 设置菜单折叠/展开功能
+        // 设置菜单折叠/展开功能 (修复版)
         function setupMenuToggle() {
-            // 桌面端菜单切换
-            document.querySelectorAll('.plan-demand-toggle, .demand-analysis-toggle, .process-capacity-toggle, .inventory-mrp-toggle, .advanced-scheduling-toggle').forEach(toggle => {
-                // 默认隐藏子菜单
+            // 1. 桌面端菜单切换 (注意：这里用的是不带 mobile- 的类名)
+            // 加上了 .system-intro-toggle
+            const desktopSelectors = [
+                '.system-intro-toggle',
+                '.plan-demand-toggle', 
+                '.demand-analysis-toggle', 
+                '.process-capacity-toggle', 
+                '.inventory-mrp-toggle', 
+                '.advanced-scheduling-toggle'
+            ].join(', ');
+
+            document.querySelectorAll(desktopSelectors).forEach(toggle => {
+                // 默认隐藏子菜单 (初始化状态)
                 const submenu = toggle.nextElementSibling;
                 if (submenu) {
-                    submenu.classList.add('hidden');
+                    // 如果你想让系统介绍默认展开，可以在这里加个判断
+                    if (!toggle.classList.contains('system-intro-toggle')) {
+                        submenu.classList.add('hidden');
+                    } else {
+                        // 系统介绍默认展开，把箭头转一下
+                        const icon = toggle.querySelector('i');
+                        if(icon) icon.classList.add('rotate-180');
+                    }
                 }
                 
+                // 绑定点击事件
                 toggle.addEventListener('click', function() {
                     const submenu = this.nextElementSibling;
                     const icon = this.querySelector('i');
                     
-                    if (submenu && icon) {
+                    if (submenu) {
                         submenu.classList.toggle('hidden');
-                        icon.classList.toggle('rotate-180');
+                        if (icon) icon.classList.toggle('rotate-180');
                     }
                 });
             });
             
-            // 移动端菜单切换
-            document.querySelectorAll('.mobile-plan-demand-toggle, .mobile-demand-analysis-toggle, .mobile-process-capacity-toggle, .mobile-inventory-mrp-toggle, .mobile-advanced-scheduling-toggle').forEach(toggle => {
+            // 2. 移动端菜单切换 (保持原样，加上 system-intro)
+            const mobileSelectors = [
+                '.mobile-system-intro-toggle',
+                '.mobile-plan-demand-toggle', 
+                '.mobile-demand-analysis-toggle', 
+                '.mobile-process-capacity-toggle', 
+                '.mobile-inventory-mrp-toggle', 
+                '.mobile-advanced-scheduling-toggle'
+            ].join(', ');
+
+            document.querySelectorAll(mobileSelectors).forEach(toggle => {
                 toggle.addEventListener('click', function() {
-                    const type = this.classList[0]; // 获取类型（如mobile-plan-demand-toggle）
-                    const submenuType = type.replace('-toggle', '-submenu'); // 转换为子菜单类型（如mobile-plan-demand-submenu）
                     const submenu = this.nextElementSibling;
                     const icon = this.querySelector('i');
                     
-                    if (submenu && icon) {
+                    if (submenu) {
                         submenu.classList.toggle('hidden');
-                        icon.classList.toggle('rotate-180');
+                        if (icon) icon.classList.toggle('rotate-180');
                     }
                 });
             });
         }
-
         function setupActivity01() {
             // 初始化年度按钮点击事件
             const initYearBtn = document.getElementById('init-year-btn');
@@ -9331,6 +9764,7 @@ function setupActivity17() {
             // 初始化图表
             initActivity24Charts();
         }
+
              setupActivity29();
         // 别忘了在初始化时调用： setupActivity29();
         // 别忘了在初始化时调用： setupActivity29();
@@ -9599,4 +10033,5 @@ function setupActivity17() {
     </script>
 </body>
 </html>
+     
      
