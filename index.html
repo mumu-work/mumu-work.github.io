@@ -8302,17 +8302,7 @@
     </div>
 
     <!-- JavaScript -->
-    <script>
-        //加了这里
-        <script>
-// 强制等页面加载完，自动执行菜单初始化（不管你原来的调用在哪）
-document.addEventListener('DOMContentLoaded', function() {
-  if (typeof setupMenuToggle === 'function') {
-    setupMenuToggle(); // 自动执行你的菜单函数
-  }
-});
-</script>
-    //截止到这里
+    
         document.addEventListener('DOMContentLoaded', function() {
             // 初始化图表
             initCharts();
