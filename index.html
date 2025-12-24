@@ -9441,7 +9441,15 @@ function setupActivity17() {
                     document.getElementById('mobile-nav').classList.add('translate-x-full');
                 });
             }
-            
+           //新加
+            document.addEventListener('DOMContentLoaded', function() {
+    // 延迟500ms执行，就算首次加载慢也能初始化成功（模拟刷新效果）
+    setTimeout(function() {
+        // 初始化菜单折叠/展开功能（你的原有调用）
+        setupMenuToggle();
+    }, 500);
+});
+           //这里结束
             // 初始化菜单折叠/展开功能
             setupMenuToggle();
         }
